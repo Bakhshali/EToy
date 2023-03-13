@@ -1,0 +1,16 @@
+C:\Users\Ali\source\repos\EToy\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.deps.json
+C:\Users\Ali\source\repos\EToy\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\Ali\source\repos\EToy\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\Ali\source\repos\EToy\DataAccess\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Ali\source\repos\EToy\DataAccess\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CopyComplete
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\Ali\source\repos\EToy\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.json
+C:\Users\Ali\source\repos\EToy\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.dev.json
+C:\Users\Ali\source\repos\EToy\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.genruntimeconfig.cache
