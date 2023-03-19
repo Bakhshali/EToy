@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace EToy
@@ -26,6 +28,16 @@ namespace EToy
         {
             services.AddRazorPages();
             services.AddMyMvcServices();
+            services.AddMvc();
+            services.AddEntityFrameworkSqlServer();
+            services.AddServicesLifeSpan();
+            services.AddDatabaseService(Configuration);
+            services.AddAuthorization();
+            services.AddResponseCompression();
+            services.AddExtraServices();
+            services.AddTransient<IMediator, Mediator>();
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddIdentityServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,15 +55,21 @@ namespace EToy
             }
 
             app.UseHttpsRedirection();
+            app.UseResponseCaching();
+            app.UseResponseCompression();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "MyArea",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

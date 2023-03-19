@@ -10392,11 +10392,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ali\\source\\repos\\EToy\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Ali\\Desktop\\EToy\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Ali\\source\\repos\\EToy\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Ali\\Desktop\\EToy\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Ali\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ali\\source\\repos\\EToy\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Ali\\Desktop\\EToy\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10413,11 +10413,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Ali\\source\\repos\\EToy\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Ali\\source\\repos\\EToy\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Ali\\Desktop\\EToy\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Ali\\Desktop\\EToy\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Ali\\source\\repos\\EToy\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Ali\\source\\repos\\EToy\\Domain\\Domain.csproj"
+            "C:\\Users\\Ali\\Desktop\\EToy\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Ali\\Desktop\\EToy\\Domain\\Domain.csproj"
             }
           }
         }

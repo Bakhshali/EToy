@@ -7,6 +7,6 @@ namespace Domain.Users
 {
     public class ApplicationUser:IdentityUser
     {
-
+        public ICollection<ApplicationUserRole> UserRoles { get; set; }
     }
 }

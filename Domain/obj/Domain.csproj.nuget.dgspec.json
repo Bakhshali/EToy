@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ali\\source\\repos\\EToy\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Ali\\Desktop\\EToy\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ali\\source\\repos\\EToy\\Domain\\Domain.csproj": {
+    "C:\\Users\\Ali\\Desktop\\EToy\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ali\\source\\repos\\EToy\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Ali\\Desktop\\EToy\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Ali\\source\\repos\\EToy\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Ali\\Desktop\\EToy\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Ali\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ali\\source\\repos\\EToy\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Ali\\Desktop\\EToy\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",

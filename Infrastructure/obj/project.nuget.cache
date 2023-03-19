@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mWlIlNeJJeiFhXZM9/3/p0jR5q8xADludNgMOHC/bPU28Kze6jeoVnWchKC+COzIeK1npwqvg80otkcr+3tu7A==",
+  "dgSpecHash": "LlDJafLMJJeBlxwF+fNogwX9rBRjr5f4Ik355EXZMwEUqYj1uTlUm8Ku4/Xom0tIOdgirm5evyxKDCgNvS+gQA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ali\\source\\repos\\EToy\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Ali\\Desktop\\EToy\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ali\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Ali\\.nuget\\packages\\automapper.collection\\7.0.1\\automapper.collection.7.0.1.nupkg.sha512",
