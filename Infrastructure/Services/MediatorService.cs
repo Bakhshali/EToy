@@ -2,6 +2,7 @@
 using Domain.Model;
 using Infrastructure.ClothesCategories.Profiles;
 using Infrastructure.Genders.Profiles;
+using Infrastructure.Industrials.Profiles;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -21,6 +22,7 @@ namespace Infrastructure.Services
             {
                 c.AddProfile<CategoryProfile>();
                 c.AddProfile<GenderProfile>();
+                c.AddProfile<IndustrialProfile>();
             });
             services.AddSingleton<IMapper>(s => config.CreateMapper());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
