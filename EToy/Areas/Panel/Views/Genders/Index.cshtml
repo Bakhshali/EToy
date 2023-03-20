@@ -1,0 +1,53 @@
+﻿@model DataAccess.Pagination.PaginatedList<Gender>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+
+<div class="table-responsive">
+    <a asp-controller="Genders" asp-action="Add" class="btn btn-success" style="border-radius:15px; position:absolute;right:40px;top:90px; background-color:#6366F1;border:none; width:50px;"><i class="fa-solid fa-plus"></i></a>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Name <i style="font-size:14px" class="fa-solid fa-arrow-down"></i></th>
+                <th scope="col">Edit <i style="font-size:14px" class="fa-solid fa-arrow-down"></i></th>
+                <th scope="col">Delete <i style="font-size:14px" class="fa-solid fa-arrow-down"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gender in Model)
+            {
+                <tr>
+                    <td>@gender.Name</td>
+
+                    <td><a asp-controller="Genders" asp-action="Update" asp-route-id="@gender.Id" class="btn btn-success" style="border-radius:15px; background-color:#6366F1;border:none; width:50px;"><i class="fa-solid fa-pen-clip"></i></a></td>
+                    <td>
+                        <form asp-action="Delete" asp-controller="Genders" asp-area="Panel" asp-route-id="@gender.Id" method="post">
+                            <button type="submit" class="btn bg-danger text-white">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<ul class="pagination align-self-end">
+    <li class="page-item @prevDisabled"><a href="#" class="page-link">&larr; &nbsp; Prev</a></li>
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <td>
+            @if (i != Model.PageIndex)
+            {
+            <li class="page-item active"><a href="#" class="page-link">@i</a></li>
+            }
+            else
+            {
+            <li class="page-item disabled"><a href="#" class="page-link">@i</a></li>
+            }
+        </td>
+    }
+    <li class="page-item @nextDisabled"><a href="#" class="page-link">Next &nbsp; &rarr;</a></li>
+</ul>

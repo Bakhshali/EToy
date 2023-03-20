@@ -9,7 +9,7 @@ namespace Domain.Model
         public Palace Palace { get; set; }
         public Measure Measure { get; set; }
 
-        public int PalaceId { get; set; }
-        public int MeasureId { get; set; }
+        public Guid PalaceId { get; set; }
+        public Guid MeasureId { get; set; }
     }
 }

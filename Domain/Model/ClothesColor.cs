@@ -9,7 +9,7 @@ namespace Domain.Model
         public Clothes Clothes { get; set; }
         public Color Color { get; set; }
 
-        public int ClothesId { get; set; }
-        public int ColorId { get; set; }
+        public Guid ClothesId { get; set; }
+        public Guid ColorId { get; set; }
     }
 }

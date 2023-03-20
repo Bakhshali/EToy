@@ -273,6 +273,10 @@
               "target": "Package",
               "version": "[3.1.20, )"
             },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[3.1.20, )"
+            },
             "Microsoft.Extensions.Options": {
               "target": "Package",
               "version": "[3.1.20, )"

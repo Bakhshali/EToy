@@ -21,10 +21,5 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
-	
-  <ItemGroup>
-    <Folder Include="Areas\Panel\Controllers\" />
-    <Folder Include="Areas\Panel\Views\" />
-  </ItemGroup>
 
 </Project>

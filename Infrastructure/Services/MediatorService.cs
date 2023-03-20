@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
+using Domain.Model;
+using Infrastructure.ClothesCategories.Profiles;
+using Infrastructure.Genders.Profiles;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.IO.Compression;
 using System.Reflection;
-using System.Text;
 
 namespace Infrastructure.Services
 {
@@ -19,7 +19,8 @@ namespace Infrastructure.Services
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             var config = new MapperConfiguration(c =>
             {
-                //c.AddProfile<InternProfile>();
+                c.AddProfile<CategoryProfile>();
+                c.AddProfile<GenderProfile>();
             });
             services.AddSingleton<IMapper>(s => config.CreateMapper());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

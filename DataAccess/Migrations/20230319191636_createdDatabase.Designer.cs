@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230318162012_CHANGE")]
-    partial class CHANGE
+    [Migration("20230319191636_createdDatabase")]
+    partial class createdDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,9 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Model.CategoryOfClothes", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -38,15 +37,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoryOfClothes");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.Model.City", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -56,22 +54,21 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("City");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("Domain.Model.Clothes", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("About")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -79,25 +76,28 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("DailyPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("DiscountId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("DiscountId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("GenderId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("GenderId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("IndustrialId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("IndustrialId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsNew")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ModelId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ModelId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
+
+                    b.Property<Guid?>("NecklineId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -107,15 +107,18 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<Guid?>("SilhouetteId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("StockCode")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<int>("StoreId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("StoreId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TextileId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("TextileId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -129,6 +132,10 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ModelId");
 
+                    b.HasIndex("NecklineId");
+
+                    b.HasIndex("SilhouetteId");
+
                     b.HasIndex("StoreId");
 
                     b.HasIndex("TextileId");
@@ -138,40 +145,64 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Model.ClothesColor", b =>
                 {
-                    b.Property<int>("ClothesId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ClothesId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ColorId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ColorId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ClothesId", "ColorId");
 
                     b.HasIndex("ColorId");
 
-                    b.ToTable("ClothesColor");
+                    b.ToTable("ClothesColors");
+                });
+
+            modelBuilder.Entity("Domain.Model.ClothesImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ClothesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsMain")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClothesId");
+
+                    b.ToTable("ClothesImages");
                 });
 
             modelBuilder.Entity("Domain.Model.ClothesSize", b =>
                 {
-                    b.Property<int>("ClothesId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ClothesId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("SizeId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("SizeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ClothesId", "SizeId");
 
                     b.HasIndex("SizeId");
 
-                    b.ToTable("ClothesSize");
+                    b.ToTable("ClothesSizes");
                 });
 
             modelBuilder.Entity("Domain.Model.Color", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -183,15 +214,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Color");
+                    b.ToTable("Colors");
                 });
 
             modelBuilder.Entity("Domain.Model.Discount", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -202,15 +232,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Discount");
+                    b.ToTable("Discounts");
                 });
 
             modelBuilder.Entity("Domain.Model.Gender", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -222,15 +251,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Gender");
+                    b.ToTable("Genders");
                 });
 
             modelBuilder.Entity("Domain.Model.Industrial", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -242,15 +270,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Industrial");
+                    b.ToTable("Industrials");
                 });
 
             modelBuilder.Entity("Domain.Model.Measure", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -262,15 +289,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Measure");
+                    b.ToTable("Measures");
                 });
 
             modelBuilder.Entity("Domain.Model.ModelOfClothes", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -282,15 +308,36 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ModelOfClothes");
+                    b.ToTable("Models");
+                });
+
+            modelBuilder.Entity("Domain.Model.Neckline", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Necklines");
                 });
 
             modelBuilder.Entity("Domain.Model.Palace", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("About")
                         .IsRequired()
@@ -301,8 +348,8 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CityId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -331,45 +378,74 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("Palace");
+                    b.ToTable("Palaces");
+                });
+
+            modelBuilder.Entity("Domain.Model.PalaceImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ClothesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsMain")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("PalaceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClothesId");
+
+                    b.HasIndex("PalaceId");
+
+                    b.ToTable("PalaceImages");
                 });
 
             modelBuilder.Entity("Domain.Model.PalaceMeasure", b =>
                 {
-                    b.Property<int>("PalaceId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PalaceId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("MeasureId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("MeasureId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("PalaceId", "MeasureId");
 
                     b.HasIndex("MeasureId");
 
-                    b.ToTable("PalaceMeasure");
+                    b.ToTable("PalaceMeasures");
                 });
 
             modelBuilder.Entity("Domain.Model.PalaceService", b =>
                 {
-                    b.Property<int>("PalaceId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PalaceId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("PalaceId", "ServiceId");
 
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("PalaceService");
+                    b.ToTable("PalaceServices");
                 });
 
             modelBuilder.Entity("Domain.Model.Service", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -381,15 +457,36 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Service");
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("Domain.Model.Silhouette", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Silhouettes");
                 });
 
             modelBuilder.Entity("Domain.Model.Size", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -401,15 +498,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Size");
+                    b.ToTable("Sizes");
                 });
 
             modelBuilder.Entity("Domain.Model.Store", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -421,15 +517,14 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Store");
+                    b.ToTable("Stores");
                 });
 
             modelBuilder.Entity("Domain.Model.Textile", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -441,7 +536,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Textile");
+                    b.ToTable("Textiles");
                 });
 
             modelBuilder.Entity("Domain.Users.ApplicationRole", b =>
@@ -461,6 +556,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<byte>("Rank")
+                        .HasColumnType("tinyint");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
@@ -469,6 +567,16 @@ namespace DataAccess.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0f8za25b-t9cb-469f-a165-708677289502",
+                            ConcurrencyStamp = "a01f8af2-e22b-4a64-a408-66ff55cd1abe",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN",
+                            Rank = (byte)1
+                        });
                 });
 
             modelBuilder.Entity("Domain.Users.ApplicationUser", b =>
@@ -534,6 +642,24 @@ namespace DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0f8fad5b-d9cb-469f-a165-70867728950e",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "19eace90-0f2d-4707-b2f7-f5cd4ac6d300",
+                            Email = "Admin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "admin@GMAIL.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHEVjNrCLV86m0E7V5lzvzMzxVYW72mTq2jF5Wwg750fyzSyIp5RAkYiipoNrkzLNA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "d11fd50f-cc6c-4197-a854-79edebafd2d6",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Users.ApplicationUserRole", b =>
@@ -549,6 +675,13 @@ namespace DataAccess.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "0f8fad5b-d9cb-469f-a165-70867728950e",
+                            RoleId = "0f8za25b-t9cb-469f-a165-708677289502"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -573,6 +706,15 @@ namespace DataAccess.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClaimType = "Role",
+                            ClaimValue = "Role",
+                            RoleId = "0f8za25b-t9cb-469f-a165-708677289502"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -670,9 +812,15 @@ namespace DataAccess.Migrations
 
                     b.HasOne("Domain.Model.ModelOfClothes", "Model")
                         .WithMany("ClothesModel")
-                        .HasForeignKey("ModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ModelId");
+
+                    b.HasOne("Domain.Model.Neckline", "Neckline")
+                        .WithMany("DressNeckline")
+                        .HasForeignKey("NecklineId");
+
+                    b.HasOne("Domain.Model.Silhouette", "Silhouette")
+                        .WithMany("DressSilhouette")
+                        .HasForeignKey("SilhouetteId");
 
                     b.HasOne("Domain.Model.Store", "Store")
                         .WithMany("ClothesStore")
@@ -682,9 +830,7 @@ namespace DataAccess.Migrations
 
                     b.HasOne("Domain.Model.Textile", "Textile")
                         .WithMany("ClothesTextile")
-                        .HasForeignKey("TextileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TextileId");
                 });
 
             modelBuilder.Entity("Domain.Model.ClothesColor", b =>
@@ -698,6 +844,15 @@ namespace DataAccess.Migrations
                     b.HasOne("Domain.Model.Color", "Color")
                         .WithMany("ColorOfClothes")
                         .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Model.ClothesImage", b =>
+                {
+                    b.HasOne("Domain.Model.Clothes", "Clothes")
+                        .WithMany()
+                        .HasForeignKey("ClothesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -722,6 +877,19 @@ namespace DataAccess.Migrations
                     b.HasOne("Domain.Model.City", "City")
                         .WithMany("Palaces")
                         .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Model.PalaceImage", b =>
+                {
+                    b.HasOne("Domain.Model.Clothes", null)
+                        .WithMany("ImagesOfPalace")
+                        .HasForeignKey("ClothesId");
+
+                    b.HasOne("Domain.Model.Palace", "Palace")
+                        .WithMany("ImagesOfPalace")
+                        .HasForeignKey("PalaceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

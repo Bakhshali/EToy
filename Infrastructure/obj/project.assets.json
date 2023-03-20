@@ -10382,6 +10382,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.20",
       "Microsoft.Extensions.DependencyInjection >= 3.1.20",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 3.1.20",
+      "Microsoft.Extensions.Identity.Core >= 3.1.20",
       "Microsoft.Extensions.Options >= 3.1.20",
       "SixLabors.ImageSharp >= 1.0.4"
     ]
@@ -10497,6 +10498,10 @@
             "version": "[3.1.20, )"
           },
           "Microsoft.Extensions.DependencyInjection.Abstractions": {
+            "target": "Package",
+            "version": "[3.1.20, )"
+          },
+          "Microsoft.Extensions.Identity.Core": {
             "target": "Package",
             "version": "[3.1.20, )"
           },

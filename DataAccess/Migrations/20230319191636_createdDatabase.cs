@@ -14,7 +14,8 @@ namespace DataAccess.Migrations
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    Rank = table.Column<byte>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,171 +48,187 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CategoryOfClothes",
+                name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CategoryOfClothes", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "City",
+                name: "Cities",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_City", x => x.Id);
+                    table.PrimaryKey("PK_Cities", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Color",
+                name: "Colors",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Color", x => x.Id);
+                    table.PrimaryKey("PK_Colors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Discount",
+                name: "Discounts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Percent = table.Column<byte>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Discount", x => x.Id);
+                    table.PrimaryKey("PK_Discounts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Gender",
+                name: "Genders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Gender", x => x.Id);
+                    table.PrimaryKey("PK_Genders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Industrial",
+                name: "Industrials",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Industrial", x => x.Id);
+                    table.PrimaryKey("PK_Industrials", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Measure",
+                name: "Measures",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Measure", x => x.Id);
+                    table.PrimaryKey("PK_Measures", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ModelOfClothes",
+                name: "Models",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ModelOfClothes", x => x.Id);
+                    table.PrimaryKey("PK_Models", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Service",
+                name: "Necklines",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Necklines", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Services",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Service", x => x.Id);
+                    table.PrimaryKey("PK_Services", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Size",
+                name: "Silhouettes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Silhouettes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sizes",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Number = table.Column<string>(maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Size", x => x.Id);
+                    table.PrimaryKey("PK_Sizes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Store",
+                name: "Stores",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Store", x => x.Id);
+                    table.PrimaryKey("PK_Stores", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Textile",
+                name: "Textiles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Textile", x => x.Id);
+                    table.PrimaryKey("PK_Textiles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -281,9 +298,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: false),
-                    UserId1 = table.Column<string>(nullable: true),
-                    RoleId1 = table.Column<string>(nullable: true)
+                    RoleId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -295,23 +310,11 @@ namespace DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId1",
-                        column: x => x.RoleId1,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -335,11 +338,10 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Palace",
+                name: "Palaces",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     MinGuest = table.Column<int>(nullable: false),
@@ -348,15 +350,15 @@ namespace DataAccess.Migrations
                     About = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(maxLength: 50, nullable: false),
                     Map = table.Column<string>(nullable: false),
-                    CityId = table.Column<int>(nullable: false)
+                    CityId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Palace", x => x.Id);
+                    table.PrimaryKey("PK_Palaces", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Palace_City_CityId",
+                        name: "FK_Palaces_Cities_CityId",
                         column: x => x.CityId,
-                        principalTable: "City",
+                        principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -365,8 +367,7 @@ namespace DataAccess.Migrations
                 name: "Clothes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     StockCode = table.Column<string>(maxLength: 255, nullable: true),
@@ -375,156 +376,239 @@ namespace DataAccess.Migrations
                     IsNew = table.Column<bool>(nullable: false),
                     DailyPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     About = table.Column<string>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false),
-                    GenderId = table.Column<int>(nullable: false),
-                    IndustrialId = table.Column<int>(nullable: false),
-                    ModelId = table.Column<int>(nullable: false),
-                    StoreId = table.Column<int>(nullable: false),
-                    DiscountId = table.Column<int>(nullable: true),
-                    TextileId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<Guid>(nullable: false),
+                    GenderId = table.Column<Guid>(nullable: false),
+                    IndustrialId = table.Column<Guid>(nullable: false),
+                    ModelId = table.Column<Guid>(nullable: true),
+                    StoreId = table.Column<Guid>(nullable: false),
+                    DiscountId = table.Column<Guid>(nullable: true),
+                    TextileId = table.Column<Guid>(nullable: true),
+                    NecklineId = table.Column<Guid>(nullable: true),
+                    SilhouetteId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clothes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clothes_CategoryOfClothes_CategoryId",
+                        name: "FK_Clothes_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "CategoryOfClothes",
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Clothes_Discount_DiscountId",
+                        name: "FK_Clothes_Discounts_DiscountId",
                         column: x => x.DiscountId,
-                        principalTable: "Discount",
+                        principalTable: "Discounts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clothes_Gender_GenderId",
+                        name: "FK_Clothes_Genders_GenderId",
                         column: x => x.GenderId,
-                        principalTable: "Gender",
+                        principalTable: "Genders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Clothes_Industrial_IndustrialId",
+                        name: "FK_Clothes_Industrials_IndustrialId",
                         column: x => x.IndustrialId,
-                        principalTable: "Industrial",
+                        principalTable: "Industrials",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Clothes_ModelOfClothes_ModelId",
+                        name: "FK_Clothes_Models_ModelId",
                         column: x => x.ModelId,
-                        principalTable: "ModelOfClothes",
+                        principalTable: "Models",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clothes_Store_StoreId",
+                        name: "FK_Clothes_Necklines_NecklineId",
+                        column: x => x.NecklineId,
+                        principalTable: "Necklines",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Clothes_Silhouettes_SilhouetteId",
+                        column: x => x.SilhouetteId,
+                        principalTable: "Silhouettes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Clothes_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Store",
+                        principalTable: "Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Clothes_Textile_TextileId",
+                        name: "FK_Clothes_Textiles_TextileId",
                         column: x => x.TextileId,
-                        principalTable: "Textile",
+                        principalTable: "Textiles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PalaceMeasure",
+                name: "PalaceMeasures",
                 columns: table => new
                 {
-                    PalaceId = table.Column<int>(nullable: false),
-                    MeasureId = table.Column<int>(nullable: false)
+                    PalaceId = table.Column<Guid>(nullable: false),
+                    MeasureId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PalaceMeasure", x => new { x.PalaceId, x.MeasureId });
+                    table.PrimaryKey("PK_PalaceMeasures", x => new { x.PalaceId, x.MeasureId });
                     table.ForeignKey(
-                        name: "FK_PalaceMeasure_Measure_MeasureId",
+                        name: "FK_PalaceMeasures_Measures_MeasureId",
                         column: x => x.MeasureId,
-                        principalTable: "Measure",
+                        principalTable: "Measures",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PalaceMeasure_Palace_PalaceId",
+                        name: "FK_PalaceMeasures_Palaces_PalaceId",
                         column: x => x.PalaceId,
-                        principalTable: "Palace",
+                        principalTable: "Palaces",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PalaceService",
+                name: "PalaceServices",
                 columns: table => new
                 {
-                    PalaceId = table.Column<int>(nullable: false),
-                    ServiceId = table.Column<int>(nullable: false)
+                    PalaceId = table.Column<Guid>(nullable: false),
+                    ServiceId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PalaceService", x => new { x.PalaceId, x.ServiceId });
+                    table.PrimaryKey("PK_PalaceServices", x => new { x.PalaceId, x.ServiceId });
                     table.ForeignKey(
-                        name: "FK_PalaceService_Palace_PalaceId",
+                        name: "FK_PalaceServices_Palaces_PalaceId",
                         column: x => x.PalaceId,
-                        principalTable: "Palace",
+                        principalTable: "Palaces",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PalaceService_Service_ServiceId",
+                        name: "FK_PalaceServices_Services_ServiceId",
                         column: x => x.ServiceId,
-                        principalTable: "Service",
+                        principalTable: "Services",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClothesColor",
+                name: "ClothesColors",
                 columns: table => new
                 {
-                    ClothesId = table.Column<int>(nullable: false),
-                    ColorId = table.Column<int>(nullable: false)
+                    ClothesId = table.Column<Guid>(nullable: false),
+                    ColorId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClothesColor", x => new { x.ClothesId, x.ColorId });
+                    table.PrimaryKey("PK_ClothesColors", x => new { x.ClothesId, x.ColorId });
                     table.ForeignKey(
-                        name: "FK_ClothesColor_Clothes_ClothesId",
+                        name: "FK_ClothesColors_Clothes_ClothesId",
                         column: x => x.ClothesId,
                         principalTable: "Clothes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClothesColor_Color_ColorId",
+                        name: "FK_ClothesColors_Colors_ColorId",
                         column: x => x.ColorId,
-                        principalTable: "Color",
+                        principalTable: "Colors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClothesSize",
+                name: "ClothesImages",
                 columns: table => new
                 {
-                    ClothesId = table.Column<int>(nullable: false),
-                    SizeId = table.Column<int>(nullable: false)
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    PhotoUrl = table.Column<string>(nullable: true),
+                    ClothesId = table.Column<Guid>(nullable: false),
+                    IsMain = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClothesSize", x => new { x.ClothesId, x.SizeId });
+                    table.PrimaryKey("PK_ClothesImages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ClothesSize_Clothes_ClothesId",
+                        name: "FK_ClothesImages_Clothes_ClothesId",
+                        column: x => x.ClothesId,
+                        principalTable: "Clothes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ClothesSizes",
+                columns: table => new
+                {
+                    ClothesId = table.Column<Guid>(nullable: false),
+                    SizeId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClothesSizes", x => new { x.ClothesId, x.SizeId });
+                    table.ForeignKey(
+                        name: "FK_ClothesSizes_Clothes_ClothesId",
                         column: x => x.ClothesId,
                         principalTable: "Clothes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClothesSize_Size_SizeId",
+                        name: "FK_ClothesSizes_Sizes_SizeId",
                         column: x => x.SizeId,
-                        principalTable: "Size",
+                        principalTable: "Sizes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "PalaceImages",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    PhotoUrl = table.Column<string>(nullable: true),
+                    PalaceId = table.Column<Guid>(nullable: false),
+                    IsMain = table.Column<bool>(nullable: true),
+                    ClothesId = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PalaceImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PalaceImages_Clothes_ClothesId",
+                        column: x => x.ClothesId,
+                        principalTable: "Clothes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PalaceImages_Palaces_PalaceId",
+                        column: x => x.PalaceId,
+                        principalTable: "Palaces",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName", "Rank" },
+                values: new object[] { "0f8za25b-t9cb-469f-a165-708677289502", "a01f8af2-e22b-4a64-a408-66ff55cd1abe", "Admin", "ADMIN", (byte)1 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "0f8fad5b-d9cb-469f-a165-70867728950e", 0, "19eace90-0f2d-4707-b2f7-f5cd4ac6d300", "Admin@gmail.com", false, false, null, "admin@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEHEVjNrCLV86m0E7V5lzvzMzxVYW72mTq2jF5Wwg750fyzSyIp5RAkYiipoNrkzLNA==", null, false, "d11fd50f-cc6c-4197-a854-79edebafd2d6", false, "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoleClaims",
+                columns: new[] { "Id", "ClaimType", "ClaimValue", "RoleId" },
+                values: new object[] { 1, "Role", "Role", "0f8za25b-t9cb-469f-a165-708677289502" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { "0f8fad5b-d9cb-469f-a165-70867728950e", "0f8za25b-t9cb-469f-a165-708677289502" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -552,16 +636,6 @@ namespace DataAccess.Migrations
                 name: "IX_AspNetUserRoles_RoleId",
                 table: "AspNetUserRoles",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_RoleId1",
-                table: "AspNetUserRoles",
-                column: "RoleId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_UserId1",
-                table: "AspNetUserRoles",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -601,6 +675,16 @@ namespace DataAccess.Migrations
                 column: "ModelId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clothes_NecklineId",
+                table: "Clothes",
+                column: "NecklineId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Clothes_SilhouetteId",
+                table: "Clothes",
+                column: "SilhouetteId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Clothes_StoreId",
                 table: "Clothes",
                 column: "StoreId");
@@ -611,28 +695,43 @@ namespace DataAccess.Migrations
                 column: "TextileId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClothesColor_ColorId",
-                table: "ClothesColor",
+                name: "IX_ClothesColors_ColorId",
+                table: "ClothesColors",
                 column: "ColorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClothesSize_SizeId",
-                table: "ClothesSize",
+                name: "IX_ClothesImages_ClothesId",
+                table: "ClothesImages",
+                column: "ClothesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClothesSizes_SizeId",
+                table: "ClothesSizes",
                 column: "SizeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Palace_CityId",
-                table: "Palace",
-                column: "CityId");
+                name: "IX_PalaceImages_ClothesId",
+                table: "PalaceImages",
+                column: "ClothesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PalaceMeasure_MeasureId",
-                table: "PalaceMeasure",
+                name: "IX_PalaceImages_PalaceId",
+                table: "PalaceImages",
+                column: "PalaceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PalaceMeasures_MeasureId",
+                table: "PalaceMeasures",
                 column: "MeasureId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PalaceService_ServiceId",
-                table: "PalaceService",
+                name: "IX_Palaces_CityId",
+                table: "Palaces",
+                column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PalaceServices_ServiceId",
+                table: "PalaceServices",
                 column: "ServiceId");
         }
 
@@ -654,16 +753,22 @@ namespace DataAccess.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ClothesColor");
+                name: "ClothesColors");
 
             migrationBuilder.DropTable(
-                name: "ClothesSize");
+                name: "ClothesImages");
 
             migrationBuilder.DropTable(
-                name: "PalaceMeasure");
+                name: "ClothesSizes");
 
             migrationBuilder.DropTable(
-                name: "PalaceService");
+                name: "PalaceImages");
+
+            migrationBuilder.DropTable(
+                name: "PalaceMeasures");
+
+            migrationBuilder.DropTable(
+                name: "PalaceServices");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -672,46 +777,52 @@ namespace DataAccess.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Color");
+                name: "Colors");
+
+            migrationBuilder.DropTable(
+                name: "Sizes");
 
             migrationBuilder.DropTable(
                 name: "Clothes");
 
             migrationBuilder.DropTable(
-                name: "Size");
+                name: "Measures");
 
             migrationBuilder.DropTable(
-                name: "Measure");
+                name: "Palaces");
 
             migrationBuilder.DropTable(
-                name: "Palace");
+                name: "Services");
 
             migrationBuilder.DropTable(
-                name: "Service");
+                name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "CategoryOfClothes");
+                name: "Discounts");
 
             migrationBuilder.DropTable(
-                name: "Discount");
+                name: "Genders");
 
             migrationBuilder.DropTable(
-                name: "Gender");
+                name: "Industrials");
 
             migrationBuilder.DropTable(
-                name: "Industrial");
+                name: "Models");
 
             migrationBuilder.DropTable(
-                name: "ModelOfClothes");
+                name: "Necklines");
 
             migrationBuilder.DropTable(
-                name: "Store");
+                name: "Silhouettes");
 
             migrationBuilder.DropTable(
-                name: "Textile");
+                name: "Stores");
 
             migrationBuilder.DropTable(
-                name: "City");
+                name: "Textiles");
+
+            migrationBuilder.DropTable(
+                name: "Cities");
         }
     }
 }

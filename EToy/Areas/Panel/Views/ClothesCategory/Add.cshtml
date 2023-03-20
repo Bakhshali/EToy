@@ -1,0 +1,16 @@
+﻿@model Infrastructure.ClothesCategories.Commands.CreateCategoryCommand
+
+<div class="m-3 mt-5">
+    <div class="title">
+        <h2 style="color:#273044"> <span style="color:#FF0000">#</span> Category əlavə et</h2>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <div>
+            <input class="form-control" asp-for="Name" placeholder="Categorianın adı"> <br />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success mt-1">Yadda saxla</button>
+        </div>
+    </form>
+</div>

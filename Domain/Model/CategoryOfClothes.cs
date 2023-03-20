@@ -12,6 +12,5 @@ namespace Domain.Model
         public string Name { get; set; }
 
         public ICollection<Clothes> ClothesCategory { get; set; }
-
     }
 }

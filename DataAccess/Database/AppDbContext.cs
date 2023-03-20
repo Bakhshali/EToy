@@ -18,6 +18,32 @@ namespace DataAccess.Database
         {
         }
 
+       
+        public DbSet<CategoryOfClothes> Categories { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Clothes> Clothes { get; set; }
+        public DbSet<ClothesColor> ClothesColors { get; set; }
+        public DbSet<ClothesImage> ClothesImages { get; set; }
+        public DbSet<ClothesSize> ClothesSizes { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
+        public DbSet<Gender> Genders { get; set; }
+        public DbSet<Industrial> Industrials { get; set; }
+        public DbSet<Measure> Measures { get; set; }
+        public DbSet<ModelOfClothes> Models { get; set; }
+        public DbSet<Neckline> Necklines { get; set; }
+        public DbSet<Palace> Palaces { get; set; }
+        public DbSet<PalaceImage> PalaceImages { get; set; }
+        public DbSet<PalaceMeasure> PalaceMeasures { get; set; }
+        public DbSet<PalaceService> PalaceServices { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Silhouette> Silhouettes { get; set; }
+        public DbSet<Size> Sizes { get; set; }
+        public DbSet<Store> Stores { get; set; }
+        public DbSet<Textile> Textiles { get; set; }
+
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -27,6 +53,7 @@ namespace DataAccess.Database
             builder.Entity<ClothesColor>().HasKey(c => new { c.ClothesId, c.ColorId });
             builder.Entity<ClothesSize>().HasKey(c => new { c.ClothesId, c.SizeId });
 
+            //builder.Entity<Palace>().HasIndex(c=>c.SeoUrl).IsUnique();
 
             builder.Entity<PalaceMeasure>().HasOne(c => c.Palace).WithMany(c => c.MeasuresOfPalaces).HasForeignKey(c => c.PalaceId);
             builder.Entity<PalaceMeasure>().HasOne(c => c.Measure).WithMany(c => c.MeasuresOfPalaces).HasForeignKey(c => c.MeasureId);
@@ -55,7 +82,7 @@ namespace DataAccess.Database
                     .HasForeignKey(ur => ur.UserId)
                     .IsRequired();
             });
-
+            builder.AddSeedUser();
         }
     }
 }

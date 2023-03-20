@@ -364,3 +364,13 @@ C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\EToy.csproj.CopyComplete
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\EToy.dll
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\EToy.pdb
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\EToy.genruntimeconfig.cache
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\ClothesCategory\Add.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\ClothesCategory\Index.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\_ViewImports.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\_ViewStart.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\ClothesCategory\Update.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Genders\Add.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Genders\Index.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Genders\Update.cshtml.g.cs
