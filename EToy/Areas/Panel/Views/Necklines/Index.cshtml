@@ -1,0 +1,67 @@
+﻿@model DataAccess.Pagination.PaginatedList<Neckline>
+
+
+@section scripts{
+    <script src="~/Limitless/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/Limitless/global_assets/js/demo_pages/datatables_basic.js"></script>
+}
+
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Cinslər</h5>
+        <div class="header-elements">
+
+            <a asp-controller="necklines" asp-action="add">
+                <div class="col-md-3 col-sm-4" style="color:#00cc00">
+                    <div class="d-flex align-items-center">
+                        <i class="icon-add mr-3 icon-2x"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <table class="table datatable-basic">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Şəkil</th>
+                <th>Yaradılıb</th>
+                <th>Redaktə</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var neckline in Model)
+            {
+                <tr>
+                    <td>@neckline.Name</td>
+
+
+                    <td><img style="width:250px;height:150px" src="~/assets/images/@neckline.ImageUrl"></td>
+                    <td>@neckline.CreatedAt</td>
+
+                    <td>
+                        <a asp-action="update" asp-controller="genders" asp-route-id="@neckline.Id">
+                            <div class="col-md-3 col-sm-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="icon-pencil5 mr-3 icon-2x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+
+                    <td>
+                        <form asp-action="Delete" asp-controller="necklines" asp-area="Panel" asp-route-id="@neckline.Id" method="post">
+
+                            <button type="submit" class="btn bg-danger">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

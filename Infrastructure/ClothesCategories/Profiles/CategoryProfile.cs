@@ -2,13 +2,14 @@
 using Domain.Model;
 using Infrastructure.ClothesCategories.Commands;
 using Infrastructure.ClothesCategories.ViewModels;
+using Infrastructure.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Infrastructure.ClothesCategories.Profiles
 {
-    public class CategoryProfile:Profile
+    public class CategoryProfile:Profile, IProfileRegister
     {
         public CategoryProfile()
         {

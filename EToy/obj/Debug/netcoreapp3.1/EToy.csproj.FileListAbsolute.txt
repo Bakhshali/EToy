@@ -366,7 +366,6 @@ C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\EToy.pdb
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\EToy.genruntimeconfig.cache
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\ClothesCategory\Add.cshtml.g.cs
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\ClothesCategory\Index.cshtml.g.cs
-C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\_ViewImports.cshtml.g.cs
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\_ViewStart.cshtml.g.cs
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Dashboard\Index.cshtml.g.cs
@@ -374,3 +373,11 @@ C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\C
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Genders\Add.cshtml.g.cs
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Genders\Index.cshtml.g.cs
 C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Genders\Update.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Industrials\Index.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Industrials\Update.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Industrials\Add.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Shared\_LimitlessNavbar.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Necklines\Add.cshtml.g.cs
+C:\Users\Ali\Desktop\EToy\EToy\obj\Debug\netcoreapp3.1\Razor\Areas\Panel\Views\Necklines\Index.cshtml.g.cs

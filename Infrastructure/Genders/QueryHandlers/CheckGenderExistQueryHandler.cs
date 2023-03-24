@@ -21,7 +21,8 @@ namespace Infrastructure.Genders.QueryHandlers
 
         public async Task<bool> Handle(CheckGenderExistQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Genders.AsNoTracking().AnyAsync(c => c.Name == request.Name, cancellationToken);
+            var result =  await _context.Genders.AsNoTracking().AnyAsync(c => c.Name.ToUpper() == request.Name.ToUpper(), cancellationToken);
+            return result;
         }
     }
 }

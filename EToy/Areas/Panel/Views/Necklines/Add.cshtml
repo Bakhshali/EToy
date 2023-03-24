@@ -1,0 +1,11 @@
+﻿@model Infrastructure.Neclines.ViewModels.GetNecklineVm
+
+<form asp-controller="Necklines" asp-action="Add" method="post" enctype="multipart/form-data">
+
+    <input type="file" asp-for="Photo" />
+    <span asp-validation-for="Photo"></span>
+
+    <input asp-for="Name" />
+
+    <button type="submit">Add</button>
+</form>

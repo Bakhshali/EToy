@@ -1,53 +1,93 @@
 ﻿@model DataAccess.Pagination.PaginatedList<Gender>
 
-@{
-    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+@section scripts{
+    <script src="~/Limitless/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/Limitless/global_assets/js/demo_pages/datatables_basic.js"></script>
 }
 
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Cinslər</h5>
+        <div class="header-elements">
 
-<div class="table-responsive">
-    <a asp-controller="Genders" asp-action="Add" class="btn btn-success" style="border-radius:15px; position:absolute;right:40px;top:90px; background-color:#6366F1;border:none; width:50px;"><i class="fa-solid fa-plus"></i></a>
-    <table class="table mt-5">
+            <a asp-controller="genders" asp-action="add">
+                <div class="col-md-3 col-sm-4" style="color:#00cc00">
+                    <div class="d-flex align-items-center">
+                        <i class="icon-add mr-3 icon-2x"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <table class="table datatable-basic">
         <thead>
             <tr>
-                <th scope="col">Name <i style="font-size:14px" class="fa-solid fa-arrow-down"></i></th>
-                <th scope="col">Edit <i style="font-size:14px" class="fa-solid fa-arrow-down"></i></th>
-                <th scope="col">Delete <i style="font-size:14px" class="fa-solid fa-arrow-down"></i></th>
+                <th>Ad</th>
+                <th>Yaradılıb</th>
+                <th>Redaktə</th>
+                <th>Sil</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var gender in Model)
+            @foreach (var item in Model)
             {
                 <tr>
-                    <td>@gender.Name</td>
+                    <td>@item.Name</td>
+                    <td>@item.CreatedAt</td>
 
-                    <td><a asp-controller="Genders" asp-action="Update" asp-route-id="@gender.Id" class="btn btn-success" style="border-radius:15px; background-color:#6366F1;border:none; width:50px;"><i class="fa-solid fa-pen-clip"></i></a></td>
                     <td>
-                        <form asp-action="Delete" asp-controller="Genders" asp-area="Panel" asp-route-id="@gender.Id" method="post">
-                            <button type="submit" class="btn bg-danger text-white">Delete</button>
+                        <a asp-action="update" asp-controller="genders" asp-route-id="@item.Id">
+                            <div class="col-md-3 col-sm-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="icon-pencil5 mr-3 icon-2x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+
+                    <td>
+                        <form asp-action="Delete" asp-controller="Genders" asp-area="Panel" asp-route-id="@item.Id" method="post">
+                        
+                            <button type="submit" class="btn bg-danger">Sil</button>
                         </form>
                     </td>
                 </tr>
             }
+
         </tbody>
     </table>
 </div>
 
-<ul class="pagination align-self-end">
-    <li class="page-item @prevDisabled"><a href="#" class="page-link">&larr; &nbsp; Prev</a></li>
-    @for (int i = 1; i <= Model.TotalPages; i++)
-    {
-        <td>
-            @if (i != Model.PageIndex)
-            {
-            <li class="page-item active"><a href="#" class="page-link">@i</a></li>
-            }
-            else
-            {
-            <li class="page-item disabled"><a href="#" class="page-link">@i</a></li>
-            }
-        </td>
-    }
-    <li class="page-item @nextDisabled"><a href="#" class="page-link">Next &nbsp; &rarr;</a></li>
-</ul>
+
+@*@foreach (var gender in Model)
+{
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h6 class="modal-title">Deleting position @gender.Name</h6>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <h6 class="font-weight-semibold">Important Note!!!</h6>
+                    <p>You are about to delete role : @gender.Name. You can not delete this position as long as you have users who posses this role. If you want to delete this role you have to remove all users from this role first. </p>
+
+                    <hr>
+
+                    <h6 class="font-weight-semibold">Related data information</h6>
+                    <p>Will add related data to this part later</p>
+                </div>
+
+                <div class="modal-footer">
+                    <form asp-action="Delete" asp-controller="Genders" asp-area="Panel" asp-route-id="@gender.Id" method="post">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn bg-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+}*@

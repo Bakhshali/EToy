@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Model;
+using Infrastructure.Common;
 using Infrastructure.Genders.Commands;
 using Infrastructure.Genders.ViewModels;
 using Infrastructure.Industrials.Commands;
@@ -10,7 +11,7 @@ using System.Text;
 
 namespace Infrastructure.Industrials.Profiles
 {
-    public class IndustrialProfile:Profile
+    public class IndustrialProfile:Profile, IProfileRegister
     {
         public IndustrialProfile()
         {

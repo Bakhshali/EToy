@@ -32,6 +32,7 @@ namespace Infrastructure.Industrials.CommandHandlers
             var result = new OperationResult<int>();
 
             var industrial = _mapper.Map<Industrial>(request);
+
             await _context.Industrials.AddAsync(industrial, cancellationToken);
 
             var persistence = await _persistence.SaveChangesAsync();

@@ -13,28 +13,28 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 4 "C:\Users\Ali\Desktop\EToy\EToy\Areas\Panel\Views\_ViewImports.cshtml"
+#line 5 "C:\Users\Ali\Desktop\EToy\EToy\Areas\Panel\Views\_ViewImports.cshtml"
 using Domain.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Ali\Desktop\EToy\EToy\Areas\Panel\Views\_ViewImports.cshtml"
+#line 6 "C:\Users\Ali\Desktop\EToy\EToy\Areas\Panel\Views\_ViewImports.cshtml"
 using Infrastructure.Common;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Ali\Desktop\EToy\EToy\Areas\Panel\Views\_ViewImports.cshtml"
+#line 7 "C:\Users\Ali\Desktop\EToy\EToy\Areas\Panel\Views\_ViewImports.cshtml"
 using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"66e04ef3b1e72d0212b81ce3642b770d67c1e228", @"/Areas/Panel/Views/ClothesCategory/Update.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"589a0aa5881afa096a07afffe5c99d02c33df888", @"/Areas/Panel/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"adbcae71c72efb78a44d5ba17598c2dfacc8bc58", @"/Areas/Panel/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Panel_Views_ClothesCategory_Update : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Infrastructure.ClothesCategories.ViewModels.GetCategoryVm>
     #nullable disable

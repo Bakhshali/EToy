@@ -29,6 +29,7 @@ namespace EToy.Areas.Panel.Controllers
             return View(result);
         }
 
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -87,7 +88,7 @@ namespace EToy.Areas.Panel.Controllers
         [AcceptVerbs("Get", "Post")]
         public async Task<IActionResult> CheckGenderExists(string name)
         {
-            var query = new CheckCategoryExistQuery(name);
+            var query = new CheckGenderExistQuery(name);
             var result = await Mediator.Send(query);
 
             return result ? Json($"Category {name} already exists") : Json(true);

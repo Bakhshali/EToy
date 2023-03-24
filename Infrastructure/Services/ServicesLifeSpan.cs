@@ -1,4 +1,5 @@
 ﻿using DataAccess.Persistence;
+using Infrastructure.ImageServices;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,5 +14,7 @@ namespace Infrastructure.Services
             services.AddTransient<IPersistence, Persistence>();
             return services;
         }
+
+
     }
 }

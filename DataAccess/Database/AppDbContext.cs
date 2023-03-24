@@ -30,7 +30,7 @@ namespace DataAccess.Database
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Industrial> Industrials { get; set; }
         public DbSet<Measure> Measures { get; set; }
-        public DbSet<ModelOfClothes> Models { get; set; }
+        public DbSet<ModelOfClothes> ModelOfClothes { get; set; }
         public DbSet<Neckline> Necklines { get; set; }
         public DbSet<Palace> Palaces { get; set; }
         public DbSet<PalaceImage> PalaceImages { get; set; }
@@ -41,8 +41,6 @@ namespace DataAccess.Database
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<Textile> Textiles { get; set; }
-
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
